@@ -6,4 +6,4 @@ para jugar(?) instalar:
 para ver los automatas en grafico, sacar el # delante de los shows
 ```
 
-![Connected Computer](img/connected-computer.gif)
+![Connected Computer](imgs/connected-computer.gif)
