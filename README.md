@@ -4,5 +4,6 @@ para jugar(?) instalar:
                        pip install visual-automata
 
 para ver los automatas en grafico, sacar el # delante de los shows
+```
 
 ![Connected Computer](img/connected-computer.gif)
