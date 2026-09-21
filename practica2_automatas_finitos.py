@@ -287,8 +287,8 @@ nfa8 = NFA(
     initial_state='q0',
     final_states={'q0','qa_par','qb_par','qb_impar','qa_impar'}
 )
-graphnfa8 = nfa8.show_diagram()
-graphnfa8.draw('nfa8.png', prog='dot')
-print(nfa8.accepts_input('aabbbaab')) 
-print(nfa8.accepts_input('aabb')) 
-print(nfa8.accepts_input('a')) 
+#graphnfa8 = nfa8.show_diagram()
+#graphnfa8.draw('nfa8.png', prog='dot')
+#print(nfa8.accepts_input('aabbbaab')) 
+#print(nfa8.accepts_input('aabb')) 
+#print(nfa8.accepts_input('a')) 
