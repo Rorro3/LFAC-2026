@@ -172,22 +172,23 @@ dfae2 = VisualDFA(
     states={'q0', 'q1', 'q2', 'q3', 'q4', 'q5', 'q6', 't'},
     input_symbols={'0', '1'},
     transitions={
-        'q0': {'0': 'q1', '1': 'q0'},  
-        'q1': {'0': 'q2', '1': 'q0'},  
-        'q2': {'0': 'q3', '1': 'q0'},  
-        'q3': {'0': 't', '1': 'q4'},  
-        'q4': {'0': 'q5', '1': 'q4'},   
-        'q5': {'0': 'q6', '1': 'q4'},   
-        'q6': {'0': 't', '1': 'q4'},
-        't':{'0':'t','1':'t'}   
+        'q0': {'0': 'q1', '1': 'q0'},
+        'q1': {'0': 'q2', '1': 'q0'},
+        'q2': {'0': 'q3', '1': 'q0'},
+        'q3': {'0': 't',  '1': 'q4'},
+        'q4': {'0': 'q5', '1': 'q4'}, 
+        'q5': {'0': 'q6', '1': 'q4'},  
+        'q6': {'0': 't',  '1': 'q4'}, 
+        't':  {'0': 't',  '1': 't'}
     },
     initial_state='q0',
-    final_states={'q3', 'q4', 'q5'}  
+    final_states={'q3', 'q4', 'q5', 'q6'} 
 )
 #dfae2.show_diagram(view=True)
 #print(dfae2.dfa.accepts_input('000')) 
 #print(dfae2.dfa.accepts_input('0000')) 
 #print(dfae2.dfa.accepts_input('0001010100100')) 
+#print(dfae2.dfa.accepts_input('10101001010'))
 
 #f. Cadenas que no contengan la subcadena 000 ni la 010.
 dfaf2 = VisualDFA(
@@ -216,7 +217,7 @@ dfaa7 = VisualDFA(
     transitions={
         'q0': {'a': 'q1', 'b': 'q0', 'c':'q0'},  
         'q1': {'a': 't', 'b': 'q2', 'c':'t'},  
-        'q2': {'a': 'q0', 'b': 'q2', 'c':'q2'}, 
+        'q2': {'a': 'q1', 'b': 'q2', 'c':'q2'}, 
         't':{'a':'t','b':'t','c':'t'}   
     },
     initial_state='q0',
@@ -224,7 +225,8 @@ dfaa7 = VisualDFA(
 )
 #dfaa7.show_diagram(view=True)
 #print(dfaa7.dfa.accepts_input('ababababababbbbbbbccccab')) 
-#print(dfaa7.dfa.accepts_input('bbcbbcbcbcbcbbcb')) 
+#print(dfaa7.dfa.accepts_input('bbcbbcbcbcbcbbcba')) 
+#print(dfaa7.dfa.accepts_input('')) 
 
 #b. La cantidad de 𝑏 debe ser par.
 dfab7 = VisualDFA(
@@ -246,17 +248,18 @@ dfab7 = VisualDFA(
 #c. La cadena no debe terminar en 𝑐.
 dfac7 = VisualDFA(
     states={'q0', 'q1'},
-    input_symbols={'a', 'b','c'},
+    input_symbols={'a', 'b', 'c'},
     transitions={
-        'q0': {'a': 'q1', 'b': 'q1', 'c':'q0'},  
-        'q1': {'a': 'q1', 'b': 'q1', 'c':'q0'}   
+        'q0': {'a': 'q0', 'b': 'q0', 'c': 'q1'},  
+        'q1': {'a': 'q0', 'b': 'q0', 'c': 'q1'}
     },
     initial_state='q0',
-    final_states={'q1'}  
+    final_states={'q0'}  
 )
-#dfac7.show_diagram(view=True)
-#print(dfac7.dfa.accepts_input('bbc'))
-#print(dfac7.dfa.accepts_input('bbcababbabcbabab'))
+dfac7.show_diagram(view=True)
+print(dfac7.dfa.accepts_input('bbc'))
+print(dfac7.dfa.accepts_input('bbcababbabcbabab'))
+print(dfac7.dfa.accepts_input('ccccca'))
 
 '''Ejercicio 8. Decimos que una subcadena de otra cadena es un grupo de repetición (o meseta)
 si todos sus símbolos son iguales y ninguno de los símbolos adyacentes a ella coincide con los
